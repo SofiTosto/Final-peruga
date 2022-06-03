@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playercontroler : MonoBehaviour
 {
+    public GameObject Panelsito;
     public float movementspeed;
     // Start is called before the first frame update
     void Start()
@@ -35,5 +36,22 @@ public class playercontroler : MonoBehaviour
             transform.position += new Vector3(-0.1f, 0, 0);
         }
     }
-
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "Pared")
+        {
+            Panelsito.SetActive(true);
+        }
+    }
+     void OnCollisionExit(Collision col)
+        {
+        if (col.gameObject.name == "Pared")
+        {
+            Panelsito.SetActive(false);
+        }
+    }
+    
 }
+
+    
+
