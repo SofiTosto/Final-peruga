@@ -5,6 +5,10 @@ using UnityEngine;
 public class playercontroler : MonoBehaviour
 {
     public GameObject Panelsito;
+    public Material rojo;
+    public Material verde;
+    public Material azul;
+
     public float movementspeed;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,27 @@ public class playercontroler : MonoBehaviour
         {
             Panelsito.SetActive(true);
         }
+        if (col.gameObject.name == "Rojo")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = rojo;
+            
+        }
+        if (col.gameObject.name == "Azul")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = azul;
+
+        }
+        if (col.gameObject.name == "Verde")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = verde;
+
+        }
+
+
+
+
+
+
     }
      void OnCollisionExit(Collision col)
         {
@@ -49,8 +74,11 @@ public class playercontroler : MonoBehaviour
         {
             Panelsito.SetActive(false);
         }
+      
+
+
     }
-    
+
 }
 
     
