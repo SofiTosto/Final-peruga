@@ -10,10 +10,12 @@ public class playercontroler : MonoBehaviour
     public Material azul;
 
     public float movementspeed;
+
+    private Material CubeComponent;
     // Start is called before the first frame update
     void Start()
     {
-
+       CubeComponent = gameObject.GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -22,30 +24,40 @@ public class playercontroler : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             //transform.position += new Vector3(0, 0, 0.1f);
-            transform.Translate(0, 0, movementspeed);
+            transform.Translate(Vector3.forward * movementspeed, Space.World);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
 
-            transform.Translate(0, 0, -movementspeed);
+            transform.Translate(Vector3.forward * -movementspeed, Space.World);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
 
-            transform.position += new Vector3(0.1f, 0, 0);
+            transform.Translate(Vector3.right * movementspeed, Space.World);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
 
-            transform.position += new Vector3(-0.1f, 0, 0);
+            transform.Translate(Vector3.right * -movementspeed, Space.World);
         }
     }
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.name == "Pared")
         {
-            Panelsito.SetActive(true);
+           CubeComponent = gameObject.GetComponent<Renderer>().material;
+            if (CubeComponent == azul)
+            {
+            Destroy(col.gameObject);
+            }
+            else
+            {
+                Panelsito.SetActive(true);
+                Debug.Log("no es azul.");
+            }
         }
+       
         if (col.gameObject.name == "Rojo")
         {
             gameObject.GetComponent<MeshRenderer>().material = rojo;
