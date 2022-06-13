@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class playercontroler : MonoBehaviour
 {
-    public GameObject Panelsito;
+    public GameObject Panelazul;
     public Material rojo;
     public Material verde;
     public Material azul;
+    public Material turquesa;
+    public Material violeta;
+    public MeshRenderer render;
 
     public float movementspeed;
 
@@ -15,7 +18,7 @@ public class playercontroler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       CubeComponent = gameObject.GetComponent<Renderer>().material;
+       
     }
 
     // Update is called once per frame
@@ -46,32 +49,48 @@ public class playercontroler : MonoBehaviour
     {
         if (col.gameObject.name == "Pared")
         {
-           CubeComponent = gameObject.GetComponent<Renderer>().material;
-            if (CubeComponent == azul)
+           
+            if (gameObject.name ==  "azulcubo")
             {
-            Destroy(col.gameObject);
+                //   render.enabled = false;
+                col.gameObject.SetActive(false);
             }
             else
-            {
-                Panelsito.SetActive(true);
-                Debug.Log("no es azul.");
+            {   
+                Panelazul.SetActive(true);
+                
+
             }
         }
        
         if (col.gameObject.name == "Rojo")
         {
             gameObject.GetComponent<MeshRenderer>().material = rojo;
-            
+            gameObject.name = "rojocubo";
         }
+
+        if (col.gameObject.name == "Turquesa")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = turquesa;
+            gameObject.name = "turquesacubo";
+        }
+
         if (col.gameObject.name == "Azul")
         {
             gameObject.GetComponent<MeshRenderer>().material = azul;
-
+            gameObject.name = "azulcubo";
         }
+
+        if (col.gameObject.name == "Violeta")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = violeta;
+            gameObject.name = "violetacubo";
+        }
+
         if (col.gameObject.name == "Verde")
         {
             gameObject.GetComponent<MeshRenderer>().material = verde;
-
+            gameObject.name = "verdecubo";
         }
 
 
@@ -84,9 +103,11 @@ public class playercontroler : MonoBehaviour
         {
         if (col.gameObject.name == "Pared")
         {
-            Panelsito.SetActive(false);
+            Panelazul.SetActive(false);
+            col.gameObject.SetActive(true);
+
         }
-      
+        
 
 
     }
