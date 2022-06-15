@@ -5,6 +5,7 @@ using UnityEngine;
 public class playercontroler : MonoBehaviour
 {
     public GameObject Panelazul;
+    public GameObject Panelganar;
     public Material rojo;
     public Material verde;
     public Material azul;
@@ -121,6 +122,12 @@ public class playercontroler : MonoBehaviour
 
         }
 
+        if (col.gameObject.name == "Ganaste")
+        {
+            Panelganar.SetActive(true);
+
+        }
+       
         if (col.gameObject.name == "Rojo")
         {
             gameObject.GetComponent<MeshRenderer>().material = rojo;
@@ -170,7 +177,12 @@ public class playercontroler : MonoBehaviour
             col.gameObject.SetActive(true);
 
         }
-        
+        if (col.gameObject.name == "Ganaste")
+        {
+            Panelganar.SetActive(false);
+
+        }
+
 
 
     }
