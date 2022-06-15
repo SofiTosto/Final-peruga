@@ -10,6 +10,8 @@ public class playercontroler : MonoBehaviour
     public Material azul;
     public Material turquesa;
     public Material violeta;
+    public Material rosa;
+
     public MeshRenderer render;
 
     public float movementspeed;
@@ -62,11 +64,72 @@ public class playercontroler : MonoBehaviour
 
             }
         }
-       
+
+        if (col.gameObject.name == "pared2")
+        {
+
+            if (gameObject.name == "verdecubo")
+            {
+               
+                col.gameObject.SetActive(false);
+            }
+            
+            
+        }
+        if (col.gameObject.name == "pared3")
+        {
+
+            if (gameObject.name == "violetacubo")
+            {
+                
+                col.gameObject.SetActive(false);
+            }
+
+
+        }
+        if (col.gameObject.name == "pared4")
+        {
+
+            if (gameObject.name == "rojocubo")
+            {
+                
+                col.gameObject.SetActive(false);
+            }
+
+
+        }
+        if (col.gameObject.name == "pared5")
+        {
+
+            if (gameObject.name == "turquesacubo")
+            {
+
+                col.gameObject.SetActive(false);
+            }
+
+
+        }
+        if (col.gameObject.name == "pared1")
+        {
+
+            if (gameObject.name == "rosacubo")
+            {
+
+                col.gameObject.SetActive(false);
+            }
+
+
+        }
+
         if (col.gameObject.name == "Rojo")
         {
             gameObject.GetComponent<MeshRenderer>().material = rojo;
             gameObject.name = "rojocubo";
+        }
+        if (col.gameObject.name == "Rosa")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = rosa;
+            gameObject.name = "rosacubo";
         }
 
         if (col.gameObject.name == "Turquesa")
