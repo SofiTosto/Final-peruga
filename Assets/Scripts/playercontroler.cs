@@ -18,6 +18,9 @@ public class playercontroler : MonoBehaviour
     public Material turquesa;
     public Material violeta;
     public Material rosa;
+
+    public GameObject confite;
+
     float tiempo = 30;
     public bool contar = false;
     public MeshRenderer render;
@@ -207,6 +210,13 @@ public class playercontroler : MonoBehaviour
         if (col.gameObject.name == "Ganar")
         {
             PanelGanar.SetActive(true);
+
+            for (int i = 0; i <= 50; i++)
+            {
+                Instantiate(confite, new Vector3(14.77f, 1.15f, -10.95f), Quaternion.identity);
+            }
+
+
         }
 
 
